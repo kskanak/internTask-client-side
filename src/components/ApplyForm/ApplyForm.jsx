@@ -40,7 +40,6 @@ const ApplyForm = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.acknowledged) {
           navigate("/confirmMsg");
         }
@@ -61,9 +60,7 @@ const ApplyForm = () => {
   const onFileChange = (e) => {
     const fileType = ["application/pdf"];
     const selectedFile = e.target.files[0];
-    // if (selectedFile.size / 1024 / 1024 > 2) {
-    //   setSizeError("File size is more than 2MB");
-    // }
+
     if (
       selectedFile.size / 1024 / 1024 < 2 &&
       selectedFile &&
@@ -84,7 +81,11 @@ const ApplyForm = () => {
   };
 
   if (isLoading) {
-    return <div>Loading ...</div>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-violet-400"></div>
+      </div>
+    );
   }
 
   return (

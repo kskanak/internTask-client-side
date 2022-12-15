@@ -11,7 +11,11 @@ const PopUpmodal = ({ skills, cv, handlePreview }) => {
   const { user, isAuthenticated, isLoading } = useAuth0();
 
   if (isLoading) {
-    return <div>Loading ...</div>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-violet-400"></div>
+      </div>
+    );
   }
   return (
     <>

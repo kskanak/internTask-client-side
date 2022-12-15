@@ -14,7 +14,11 @@ const ConfirmMsg = () => {
     .catch((error) => console.log(error));
 
   if (isLoading) {
-    return <div>Loading ...</div>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-violet-400"></div>
+      </div>
+    );
   }
   return (
     <div>
@@ -28,11 +32,11 @@ const ConfirmMsg = () => {
             />
 
             <blockquote className="max-w-lg text-lg italic font-medium text-center">
-              "Dear {user?.name}, "You application accepted and your application
-              tracking no: {applicantInfo?.track_id}""
+              "Dear {user?.name}, You application accepted and your application
+              tracking no : {applicantInfo?.track_id}"
             </blockquote>
 
-            <div className="text-center dark:text-gray-400">
+            <div className="text-center dark:text-gray-400 font-semibold">
               <p>Good Luck</p>
               <p>Wish you all the best.</p>
             </div>
